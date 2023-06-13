@@ -195,6 +195,13 @@ let database = [
 ];
 
 class Product {
+  constructor() {
+    this.database = [
+      // productos existentes...
+    ];
+    this.nextId = this.database.length + 1; // Obtén el próximo ID disponible
+  }
+
   get(req, res) {
     res.json(database);
   }
