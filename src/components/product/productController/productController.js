@@ -194,24 +194,6 @@ let database = [
   },
 ];
 
-const lastId = database.reduce(
-  (maxId, product) => Math.max(maxId, product.id),
-  0
-);
-
-const newId = lastId + 1;
-
-const newProduct = {
-  id: newId,
-  title: "Nuevo producto",
-  description: "Descripción del nuevo producto",
-  code: "123456",
-  price: 1000,
-  status: true,
-  stock: 10,
-  category: "Cerveza Industrial",
-};
-
 class Product {
   get(req, res) {
     res.json(database);
