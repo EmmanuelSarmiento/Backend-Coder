@@ -160,11 +160,72 @@ let database = [
     stock: 1,
     category: "Cerveza Industrial",
   },
+  {
+    id: 16,
+    title: "Heineken 0.0% Sixpack 355ml",
+    description:
+      "Heineken 0.0% es una cerveza sin alcohol y todo el sabor. Elaborada con pura malta, ingredientes 100% naturales y la exclusiva Levadura A de Heineken",
+    code: "100828",
+    price: 2800,
+    status: true,
+    stock: 1,
+    category: "Cerveza Industrial",
+  },
+  {
+    id: 17,
+    title: "Heineken Sixpack 330ml",
+    description: "Cuerpo ligero. Sabor algo amargo pero fresco.",
+    code: "100827",
+    price: 2200,
+    status: true,
+    stock: 1,
+    category: "Cerveza Industrial",
+  },
+  {
+    id: 18,
+    title: "Heineken Sixpack 473ml",
+    description:
+      "Se elabora con la misma receta desde 1873, usando los ingredientes naturales más puros, un excepcional estándar de calidad y sin ningún aditivo ni conservante. Es pura malta, elaborada a partir de un mosto cuyo extracto primitivo proviene exclusivamente de cebada malteada. Su sabor distintivo y único está dado por el uso exclusivo de la Levadura A, especialmente desarrollada por un discípulo de Louis Pasteur, resguardada en Holanda, desde donde se distribuye para garantizar que el sabor característico de Heineken sea igual en todo el mundo.",
+    code: "100829",
+    price: 2200,
+    status: true,
+    stock: 1,
+    category: "Cerveza Industrial",
+  },
 ];
+
+const lastId = database.reduce(
+  (maxId, product) => Math.max(maxId, product.id),
+  0
+);
+
+const newId = lastId + 1;
+
+const newProduct = {
+  id: newId,
+  title: "Nuevo producto",
+  description: "Descripción del nuevo producto",
+  code: "123456",
+  price: 1000,
+  status: true,
+  stock: 10,
+  category: "Cerveza Industrial",
+};
 
 class Product {
   get(req, res) {
     res.json(database);
+  }
+
+  findById(req, res) {
+    const productId = parseInt(req.params.id);
+    const product = database.find((item) => item.id === productId);
+
+    if (product) {
+      res.json(product);
+    } else {
+      res.status(404).json({ Response: "Producto no encontrado" });
+    }
   }
 
   create(req, res) {
