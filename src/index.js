@@ -1,25 +1,13 @@
-const express = require("express");
+import express from "express";
+import ProductRouter from "../src/router/product.routes.js";
+import CartRouter from "../src/router/carts.routes.js";
+
+const app = express();
 const PORT = 8080;
-const routes = require("./routes");
 
-class Server {
-  constructor() {
-    this.app = express();
-    this.settings();
-    this.routes();
-  }
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use("/api/products", ProductRouter);
+app.use("/api/cart", CartRouter);
 
-  settings() {
-    this.app.use(express.json());
-    this.app.use(express.urlencoded({ extended: true }));
-  }
-
-  routes() {
-    routes(this.app);
-  }
-  listen() {
-    this.app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
-  }
-}
-
-module.exports = new Server();
+app.listen(PORT, () => console.log(`Servidor Express Puerto ${PORT}`));

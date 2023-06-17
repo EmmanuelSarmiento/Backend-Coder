@@ -1,0 +1,14 @@
+[
+  {
+    "id": "pXP3LKUghvmoYuchmMXy6",
+    "products": [
+      { "id": "DDbqlm9vIEzq1PP6NlX7g", "cantidad": 3 },
+      { "id": "pI59Zc0wWBK66Ko5ic58F", "cantidad": 2 }
+    ]
+  },
+  { "id": "YhjczpcyhNJMJnAm_zOHE", "cantidad": 2 },
+  { "id": "EFcjYWihJKGHQQcR8NKLq", "cantidad": 2 },
+  { "id": "EFcjYWihJKGHQQcR8NKLq", "cantidad": 1 },
+  { "id": "fUUlFAUQTTdsqYALaG2DR", "products": [] },
+  { "id": "YA--z7YWCnvVil1yg9Atk", "products": [] }
+]
